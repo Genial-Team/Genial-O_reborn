@@ -37,6 +37,7 @@ Génial-Reborn serves as a comprehensive Discord bot and website combination to 
 
 - **/bot**: All the bot-related code written in Node.js and TypeScript.
 - **/api**: Node.js API to handle requests between the bot and the website.
+- **/webapp**: VueJS Directories to create a web application
 - **/utils**: Some utility code used anywhere
 ---
 
@@ -50,8 +51,8 @@ Génial-Reborn serves as a comprehensive Discord bot and website combination to 
 ### Steps to Run Locally
 1. **Clone the Repository**:
    ```bash
-   git clone https://github.com/Genial-Team/Genial-Reborn.git
-   cd genial-reborn
+   git clone https://github.com/Genial-Team/Genial-O_reborn.git
+   cd Genial-O_reborn
    ```
 ### Bot Setup
 2. **Install Dependencies**:
@@ -61,19 +62,19 @@ Génial-Reborn serves as a comprehensive Discord bot and website combination to 
 2. **Configure Environment Variables**:
    - Create a `.env` file in the root directory. (.env.development for development, .env.production for production).
    - Add the following environment variables:
-   ```dotenv
-        #Database
-        DB_HOST='MyHost'
-        DB_PORT='MyPort'
-        DB_USER='MyUser'
-        DB_PASSWORD='MySecretPassword'
-        DB_DNAME='MyDatabaseName'
-        #Discord bot
-        DISCORD_TOKEN='MyDiscordToken'
-        DISCORD_CLIENT_ID='MyClientId'
-        DISCORD_GUILD_ID='myGuildId' # only for development
-        #Express
-        EXPRESS_PORT='MyApiPort'
+   ```dotenv#Database
+    DB_HOST=''
+    DB_PORT=''
+    DB_USER=''
+    DB_PASSWORD=''
+    DB_DNAME=''
+    
+    DISCORD_TOKEN=''
+    DISCORD_CLIENT_ID=''
+    DISCORD_GUILD_ID='' # only for development
+    
+    EXPRESS_PORT=''
+    EXPRESS_API_SECRET=''
    ```
 3. **Run the Bot**:
 
@@ -101,13 +102,14 @@ Privacy: We only collect and store data necessary for moderation and bot functio
 
 ### 🛠️ Contributors
 ---
-LyneQ - Lead Developer
-marwank270 - Co-developer and Graphic Designer
+_LyneQ_ - Lead Developer\
+_marwank270_ - Co-developer and Graphic Designer\
 Feel free to contact us for any queries or contributions!
 
-### 📜 License
+## 📜 License
 ---
-This project is licensed under a private license. Unauthorized use, distribution, or reproduction is prohibited.
+This project is licensed under the *MIT License*.
+
 
    
    
