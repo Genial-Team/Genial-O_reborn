@@ -1,0 +1,42 @@
+
+# Node.js dependencies
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Logs
+logs/
+*.log
+*.trace
+
+# Environment variables
+.env.developement
+.env.production
+.env
+
+# Compiled files
+dist/
+build/
+out/
+
+# TypeScript
+*.tsbuildinfo
+
+# IDE/Editor settings
+.idea/
+.fleet/
+.jetclient
+.vscode/
+*.sln
+*.sw?
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# pnpm store
+.pnpm-store/
+
+# Miscellaneous
+!.gitignore

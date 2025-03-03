@@ -1,0 +1,27 @@
+{
+  "dependencies": {
+    "@types/node": "^22.13.5",
+    "colors": "^1.4.0",
+    "discord.js": "^14.18.0",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "mysql2": "^3.12.0",
+    "os": "^0.1.2",
+    "pnpm": "^10.5.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.7.3",
+    "vite": "^6.2.0"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.0",
+    "dotenv-cli": "^8.0.0",
+    "tsx": "^4.19.3"
+  },
+  "scripts": {
+    "dev": "dotenv -e .env.developement ts-node main.ts",
+    "start:api": "ts-node ./api/init.ts",
+    "start:bot": "ts-node ./bot/init.ts",
+    "start:webapp": "npx vite --config ./webapp/vite.config.ts",
+    "prod": "dotenv -e .env.production ts-node ./main.ts"
+  }
+}
