@@ -1,5 +1,7 @@
 {
   "dependencies": {
+    "@nuxtjs/auth-next": "^5.0.0-1667386184.dfbbb54",
+    "@nuxtjs/axios": "^5.13.6",
     "@types/node": "^22.13.5",
     "colors": "^1.4.0",
     "discord.js": "^14.18.0",
@@ -15,13 +17,14 @@
   "devDependencies": {
     "@types/express": "^5.0.0",
     "dotenv-cli": "^8.0.0",
+    "sass": "^1.85.1",
+    "sass-embedded": "^1.85.1",
     "tsx": "^4.19.3"
   },
   "scripts": {
     "dev": "dotenv -e .env.developement ts-node main.ts",
     "start:api": "ts-node ./api/init.ts",
     "start:bot": "ts-node ./bot/init.ts",
-    "start:webapp": "npx vite --config ./webapp/vite.config.ts",
     "prod": "dotenv -e .env.production ts-node ./main.ts"
   }
 }

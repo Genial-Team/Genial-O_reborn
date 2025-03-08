@@ -1,0 +1,57 @@
+@use "reset";
+@use "variable" as *;
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+body {
+  font-family: "Inter", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+
+  background-color: $white;
+  color: $black;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 700;
+}
+
+a {
+  text-decoration: none;
+  color: $primary;
+
+  transition: $transition;
+  &:hover {
+    transition: $transition;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+}
+
+input[type=text], input[type=email], input[type=password] {
+  border: $border-size solid $white-secondary;
+  border-radius: $border-radius;
+
+  background-color: $white-secondary;
+
+  padding: $spacing-small;
+}
+
+input[type=button], input[type=submit], button {
+  border: $border-size solid $primary;
+  border-radius: $border-radius;
+
+  padding: $spacing-small;
+
+  background-color: transparent;
+  color: $primary;
+
+  transition: $transition;
+  &:hover {
+    transition: $transition;
+
+    cursor: pointer;
+
+    background-color: $primary;
+    color: $white;
+  }
+}

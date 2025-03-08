@@ -60,14 +60,14 @@ function installDependencies(cwd: string): Promise<void> {
 
 // Vérification des dependence
 Promise.all([
-    installDependencies("./webapp")
+    installDependencies("./nuxt-app")
 ])
     .then(() => {
         // Lancement des services
         global.logger.info("🚀 Lancement des services...");
         startProcess("API", "npm run start:api", "./api");
         startProcess("BOT", "npm run start:bot", "./bot");
-        startProcess("WEBAPP", "pnpm run dev", "./webapp");
+        startProcess("WEBAPP", "pnpm run dev", "./nuxt-app");
     })
 
 

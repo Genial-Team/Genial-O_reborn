@@ -1,0 +1,64 @@
+/* reset.scss */
+
+/* Remove default margin, padding, and box sizing for all elements */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Set a default font size, family and line height */
+html {
+  font-size: 16px;
+  line-height: 1.5;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+}
+
+/* Reset body specifics */
+body {
+  margin: 0;
+  background-color: #fff;
+  color: #000;
+  font-family: inherit;
+}
+
+/* Remove decoration and resetting other attributes for anchors */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Unset list styles */
+ul,
+ol {
+  list-style: none;
+}
+
+/* Set a zero border and remove default outlines */
+button,
+input,
+textarea,
+select {
+  border: none;
+  background: none;
+  outline: none;
+  font-family: inherit;
+  font-size: inherit;
+}
+
+/* Tables */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 100%;
+}
+
+/* Images */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
