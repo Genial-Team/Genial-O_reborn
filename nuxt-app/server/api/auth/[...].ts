@@ -1,40 +1,45 @@
 import DiscordProvider from 'next-auth/providers/discord';
 // @ts-ignore
-import { NuxtAuthHandler } from '#auth';
+import {NuxtAuthHandler} from '#auth';
 
 export default NuxtAuthHandler({
 
     secret: useRuntimeConfig().authSecret,
     providers: [
-        // @ts-expect-error
+        // @ts-ignore
         DiscordProvider.default({
             clientId: useRuntimeConfig().authDiscordClientId,
             clientSecret: useRuntimeConfig().authDiscordClientSecret,
-            tokenUrl: 'https://discord.com/api/oauth2/token',
-            authorizationUrl: 'https://discord.com/oauth2/authorize?client_id=944941584691105843&response_type=code&redirect_uri=http%3A%2F%2Flocalhost%3A8080%2Fapi%2Fauth%2Fcallback%2Fdiscord&scope=identify+email+guilds',
-            userinfoUrl: 'https://discord.com/api/users/@me',
-            profileUrl: 'https://discord.com/api/users/@me',
-            scope: 'identify email guilds',
+            authorization: {
+                url: "https://discord.com/oauth2/authorize",
+                params: {
+                    scope: "identify email guilds",
+                    prompt: "consent"
+                }
+            },
+            token: "https://discord.com/api/oauth2/token",
+            userinfo: "https://discord.com/api/users/@me",
         })
     ],
     callbacks: {
         // @ts-ignore
-        async jwt({ token, account, user }) {
+        async jwt({token, account, user}) {
             if (account) {
+                console.log("Scopes:", account.scope);
                 token.accessToken = account.access_token; // Ajoute le jeton d'accès au token JWT
                 token.refreshToken = account.refresh_token; // (Facultatif) Ajoute le refresh token
                 token.expiresAt = account.expires_at; // Définit l'expiration du token
 
                 // Facultatif : Ajouter des données utilisateur si nécessaires
-                token.user = user ? { id: user.id, name: user.name, email: user.email } : null;
+                token.user = user ? {id: user.id, name: user.name, email: user.email} : null;
             }
             return token;
         },
         // @ts-ignore
-        async session({ session, token }) {
+        async session({session, token}) {
             session.accessToken = token.accessToken; // Transmet le jeton d'accès à la session
             session.expires = token.expiresAt; // Spécifie la date d'expiration dans la session
-            session.user = { ...session.user, id: token.user?.id }; // Ajoute des métadonnées utilisateur
+            session.user = {...session.user, id: token.user?.id}; // Ajoute des métadonnées utilisateur
             return session;
         },
     },

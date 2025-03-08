@@ -19,7 +19,8 @@ const user = {
       </div>
       <nav>
         <ul class="menu">
-          <li><NuxtLink to="http://localhost:8080/servers">Mes serveurs</NuxtLink></li>
+          <li><NuxtLink to="http://localhost:8080/">Accueil</NuxtLink></li>
+          <li><NuxtLink to="http://localhost:8080/server/list">Mes serveurs</NuxtLink></li>
           <li><NuxtLink to="http://localhost:8080/settings">Settings</NuxtLink></li>
           <li><NuxtLink to="http://localhost:8080/api/auth/signout">Logout</NuxtLink></li>
         </ul>
@@ -36,6 +37,7 @@ const user = {
       </div>
       <nav>
         <ul class="menu">
+          <li><NuxtLink to="http://localhost:8080/">Accueil</NuxtLink></li>
           <li><NuxtLink to="http://localhost:8080/api/auth/signin">Se connecter</NuxtLink></li>
           <li><NuxtLink to="http://localhost:8080/about">À propos</NuxtLink></li>
           <li><NuxtLink to="http://localhost:8080/help">Aide</NuxtLink></li>
@@ -119,7 +121,10 @@ nav {
 }
 
 .content {
+  width: 100%;
   padding: 20px;
+  max-height: 100lvh;
+  overflow: scroll;
 }
 
 </style>
