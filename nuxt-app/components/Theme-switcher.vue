@@ -20,12 +20,6 @@ const setSystemMode = () => (colorMode.preference = 'system')
         @click="setDarkMode">
       🌙
     </button>
-    <button
-        class="theme-button"
-        :class="{ active: colorMode.preference === 'system' }"
-        @click="setSystemMode">
-      💻
-    </button>
   </div>
 </template>
 

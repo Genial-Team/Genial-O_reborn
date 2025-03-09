@@ -17,7 +17,18 @@ export default defineNuxtConfig({
           }
       }
   },
-  modules: ['@sidebase/nuxt-auth', '@nuxtjs/color-mode'],
+        app: {
+            head: {
+                title: 'Nuxt',
+                htmlAttrs: {
+                    lang: 'fr',
+                },
+                link: [
+                    { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+                ]
+            }
+        },
+    modules: ['@sidebase/nuxt-auth', '@nuxtjs/color-mode'],
     auth: {
         isEnabled: true,
         disableServerSideAuth: false,
@@ -35,14 +46,14 @@ export default defineNuxtConfig({
         }
     },
     colorMode: {
-        preference: 'system', // default value of $colorMode.preference
-        fallback: 'light', // fallback value if not system preference found
+        preference: 'system',
+        fallback: 'light',
         hid: 'nuxt-color-mode-script',
         globalName: '__NUXT_COLOR_MODE__',
         componentName: 'ColorScheme',
         classPrefix: '',
         classSuffix: '-mode',
-        storage: 'localStorage', // or 'sessionStorage' or 'cookie'
+        storage: 'sessionStorage',
         storageKey: 'nuxt-color-mode'
     }
 })
