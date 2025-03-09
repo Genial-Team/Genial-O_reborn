@@ -3,7 +3,11 @@ import DiscordProvider from "next-auth/providers/discord";
 export default defineNuxtConfig({
   compatibilityDate: '2024-11-01',
   devtools: {enabled: true},
-
+    runtimeConfig: {
+        authDiscordClientSecret: process.env.AUTH_DISCORD_CLIENT_SECRET,
+        authDiscordClientId: process.env.AUTH_DISCORD_CLIENT_ID,
+        discordBotToken: process.env.DISCORD_BOT_TOKEN
+    },
   vite: {
       css: {
           preprocessorOptions: {
@@ -13,13 +17,7 @@ export default defineNuxtConfig({
           }
       }
   },
-
-  modules: ['@sidebase/nuxt-auth'],
-    runtimeConfig: {
-        authDiscordClientSecret: process.env.AUTH_DISCORD_CLIENT_SECRET,
-        authDiscordClientId: process.env.AUTH_DISCORD_CLIENT_ID,
-        discordBotToken: process.env.DISCORD_BOT_TOKEN
-    },
+  modules: ['@sidebase/nuxt-auth', '@nuxtjs/color-mode'],
     auth: {
         isEnabled: true,
         disableServerSideAuth: false,
@@ -35,5 +33,16 @@ export default defineNuxtConfig({
             enablePeriodically: true,
             enableOnWindowFocus: true,
         }
+    },
+    colorMode: {
+        preference: 'system', // default value of $colorMode.preference
+        fallback: 'light', // fallback value if not system preference found
+        hid: 'nuxt-color-mode-script',
+        globalName: '__NUXT_COLOR_MODE__',
+        componentName: 'ColorScheme',
+        classPrefix: '',
+        classSuffix: '-mode',
+        storage: 'localStorage', // or 'sessionStorage' or 'cookie'
+        storageKey: 'nuxt-color-mode'
     }
 })

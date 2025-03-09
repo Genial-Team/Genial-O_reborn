@@ -1,23 +1,28 @@
 @use "reset";
 @use "variable" as *;
-@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
 
 body {
   font-family: "Inter", sans-serif;
   font-optical-sizing: auto;
   font-style: normal;
 
-  background-color: $white;
-  color: $black;
+  background-color: var(--background);
+  color: var(--text);
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-weight: 700;
 }
 
 a {
   text-decoration: none;
-  color: $primary;
+  color: var(--links);
 
   transition: $transition;
   &:hover {
@@ -27,23 +32,28 @@ a {
   }
 }
 
-input[type=text], input[type=email], input[type=password] {
-  border: $border-size solid $white-secondary;
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+  border: $border-size solid var(--background-secondary);
   border-radius: $border-radius;
 
-  background-color: $white-secondary;
+  background-color: var(--background-secondary);
 
+  color: var(--text);
   padding: $spacing-small;
 }
 
-input[type=button], input[type=submit], button {
-  border: $border-size solid $primary;
+input[type="button"],
+input[type="submit"],
+button {
+  border: $border-size solid var(--links);
   border-radius: $border-radius;
 
   padding: $spacing-small;
 
   background-color: transparent;
-  color: $primary;
+  color: var(--links);
 
   transition: $transition;
   &:hover {
@@ -51,11 +61,10 @@ input[type=button], input[type=submit], button {
 
     cursor: pointer;
 
-    background-color: $primary;
-    color: $white;
+    background-color: var(--links);
+    color: var(--background);
   }
 }
-
 
 @keyframes loading {
   0% {
@@ -70,15 +79,15 @@ input[type=button], input[type=submit], button {
   display: inline-block;
   width: 24px;
   height: 24px;
-  border: 3px solid $primary-light;
-  border-top: 3px solid $primary;
+  border: 3px solid var(--decoration);
+  border-top: 3px solid var(--links);
   border-radius: 50%;
   animation: loading 0.8s linear infinite;
 
   &:disabled {
     cursor: not-allowed;
-    color: $white;
-    background-color: $primary-light;
+    color: var(--background-secondary);
+    background-color: var(--decoration);
     opacity: 0.7;
   }
 

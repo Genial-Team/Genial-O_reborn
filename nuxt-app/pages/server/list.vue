@@ -57,7 +57,6 @@ onMounted(async () => {
     </ul>
   </div>
 </template>
-
 <style scoped lang="scss">
 a {
   transition: none;
@@ -73,9 +72,8 @@ a {
 }
 
 .guild {
-  //background: rgb(225, 225, 225);
-  background: $white-secondary;
-  border: 1px solid $primary;
+  background: var(--background-secondary); /* Couleur adaptée au thème */
+  border: 1px solid var(--links); /* Couleur des bordures dynamiques */
   border-radius: 10px;
   overflow: hidden;
   text-align: center;
@@ -102,7 +100,7 @@ a {
 /* Nom de la guild */
 .guild:hover {
   transform: translateY(-8px);
-  box-shadow: 0 8px 15px $primary;
+  box-shadow: 0 8px 15px var(--links); /* Couleur des ombres dynamiques */
 }
 
 .guild:hover img {
@@ -113,14 +111,14 @@ a {
 .guild {
   font-size: 1.2rem;
   font-weight: bold;
-  color: $gray;
+  color: var(--decoration); /* Couleur des textes dynamique */
 }
 
 /* Chargement */
 div[v-if="isLoading"] {
   text-align: center;
   font-size: 1.5rem;
-  color: $primary;
+  color: var(--links); /* Couleur des textes dynamiques */
   margin-top: 20px;
 }
 

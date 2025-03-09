@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import ThemeSwitcher from "~/components/Theme-switcher.vue";
+
 const headers = useRequestHeaders(['cookie']) as HeadersInit
 const { data: userData } = await useFetch('/api/token', { headers })
 
@@ -25,6 +27,8 @@ const user = {
           <li><NuxtLink to="http://localhost:8080/api/auth/signout">Logout</NuxtLink></li>
         </ul>
       </nav>
+      <ThemeSwitcher/>
+
     </div>
     <!-- Logged-of user-->
     <div v-else class="sidebar">
@@ -43,6 +47,7 @@ const user = {
           <li><NuxtLink to="http://localhost:8080/help">Aide</NuxtLink></li>
         </ul>
       </nav>
+      <ThemeSwitcher/>
     </div>
     <div class="content">
       <slot/>
@@ -58,8 +63,8 @@ const user = {
 
 .sidebar {
   width: 250px;
-  background-color: #f5f5f5;
-  padding: 20px;
+  background-color: var(--background-secondary);
+  padding: 20px 20px 5px;
   height: 100vh;
   display: flex;
   flex-direction: column;
@@ -82,13 +87,13 @@ const user = {
   border-radius: 50%;
   object-fit: cover;
   margin-bottom: 10px;
-  border: 2px solid #ddd;
+  border: 2px solid var(--decoration);
 }
 
 .user-info .user-name {
   font-size: 1.2em;
   font-weight: bold;
-  color: #333;
+  color: var(--text);
 }
 
 .menu {
@@ -102,7 +107,7 @@ const user = {
 
   a {
      text-decoration: none;
-     color: #555;
+     color: var(--text);
      font-size: 1em;
      display: block;
      padding: 10px;

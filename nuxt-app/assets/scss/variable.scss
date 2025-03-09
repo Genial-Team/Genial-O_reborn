@@ -1,3 +1,4 @@
+// Color Variable
 $primary: #CA994A;
 $primary-light: #F1C48B;
 $primary-dark: #996633;
@@ -14,6 +15,8 @@ $red: #f13b3b;
 $orange: #f18b3b;
 $green: #2ecc71;
 
+// Width and radius variable
+
 $border-size: 1px;
 $border-radius: 5px;
 $border-radius-medium: 12px;
@@ -24,6 +27,35 @@ $transition-ease: ease-in-out;
 $transition-type: all;
 $transition : $transition-type $transition-duration $transition-ease;
 
-
+// spacing variable
 $spacing: 10px;
 $spacing-small: 5px;
+
+
+// theme class
+$dark-background: #121212;
+$dark-background-secondary: #1e1e1e;
+$dark-text: #e4e4e7;
+$dark-decoration: #606060;
+
+$light-background: #f9f9f9;
+$light-background-secondary: #ececec;
+$light-text: #2e2e2e;
+$light-decoration: #8f8f8f;
+
+// Classes des thèmes
+.dark-mode {
+  --background: #{$dark-background};
+  --background-secondary: #{$dark-background-secondary};
+  --text: #{$dark-text};
+  --decoration: #{$dark-decoration};
+  --links: #{$primary};
+}
+
+.light-mode {
+  --background: #{$light-background};
+  --background-secondary: #{$light-background-secondary};
+  --text: #{$light-text};
+  --decoration: #{$light-decoration};
+  --links: #{$primary};
+}
