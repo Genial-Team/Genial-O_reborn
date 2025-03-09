@@ -6,10 +6,11 @@ interface UserData {
   accessToken: string;
 }
 
-const guilds = ref<any[]>([]);
-const isLoading = ref(true);
-const headers = useRequestHeaders(['cookie']) as HeadersInit;
+const router = useRouter();
 
+const isLoading = ref(true);
+const guilds = ref<any[]>([]);
+const headers = useRequestHeaders(['cookie']) as HeadersInit;
 // Récupération du token d'accès
 const { data: userData } = await useFetch<UserData>('/api/token', { headers });
 
@@ -24,6 +25,10 @@ function canInviteBot(permissions: string): boolean {
 
   return (userPermissions & BigInt(ADMINISTRATOR)) !== 0n ||
       (userPermissions & BigInt(CREATE_INSTANT_INVITE)) !== 0n;
+}
+
+function goToServerPage(guildId: string) {
+  router.push(`/server/${guildId}`);
 }
 
 onMounted(async () => {
@@ -50,7 +55,7 @@ onMounted(async () => {
       <li v-for="guild in guilds.filter( (g) => canInviteBot(g.permissions) )" :key="guild.id" class="guild">
         <img :src="`https://cdn.discordapp.com/icons/${guild.id}/${guild.icon}.png`" alt="Icone du serveur" />
         {{ guild.name }}
-        <button>
+        <button @click="goToServerPage(guild.id)" >
           Configurer
         </button>
       </li>
