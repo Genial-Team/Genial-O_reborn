@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import ThemeSwitcher from "~/components/Theme-switcher.vue";
 
+const { signIn, signOut } = useAuth()
+
 const headers = useRequestHeaders(['cookie']) as HeadersInit
 const { data: userData } = await useFetch('/api/token', { headers })
 
@@ -24,7 +26,7 @@ const user = {
           <li><NuxtLink to="http://localhost:8080/">Accueil</NuxtLink></li>
           <li><NuxtLink to="http://localhost:8080/server/list">Mes serveurs</NuxtLink></li>
           <li><NuxtLink to="http://localhost:8080/settings">Settings</NuxtLink></li>
-          <li><NuxtLink to="http://localhost:8080/api/auth/signout">Logout</NuxtLink></li>
+          <li><NuxtLink to="/" @click="signOut">Logout</NuxtLink></li>
         </ul>
       </nav>
       <ThemeSwitcher/>
@@ -42,7 +44,7 @@ const user = {
       <nav>
         <ul class="menu">
           <li><NuxtLink to="http://localhost:8080/">Accueil</NuxtLink></li>
-          <li><NuxtLink to="http://localhost:8080/api/auth/signin">Se connecter</NuxtLink></li>
+          <li><NuxtLink to="/" @click="signIn('discord')">Se connecter</NuxtLink></li>
           <li><NuxtLink to="http://localhost:8080/about">À propos</NuxtLink></li>
           <li><NuxtLink to="http://localhost:8080/help">Aide</NuxtLink></li>
         </ul>

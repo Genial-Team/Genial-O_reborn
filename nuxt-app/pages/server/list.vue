@@ -2,6 +2,14 @@
 import {onMounted, ref} from "vue";
 import {useFetch} from "#app";
 
+const { status } = useAuth()
+
+onMounted(() => {
+  status.value === 'unauthenticated' ? router.push('/') : null;
+})
+
+
+
 interface UserData {
   accessToken: string;
 }

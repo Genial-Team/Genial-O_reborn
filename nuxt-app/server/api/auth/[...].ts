@@ -43,12 +43,6 @@ export default NuxtAuthHandler({
             return session;
         },
     },
-    // pages: {
-    //     signIn: '/auth/signin', // Page de connexion personnalisée
-    //     signOut: '/auth/signout', // Page de déconnexion personnalisée
-    //     error: '/auth/error', // Page d'erreur en cas de problème
-    //     callback: '/auth/callback', // Page de rappel après autorisation
-    // },
     session: {
         strategy: 'jwt',
         maxAge: 30 * 24 * 60 * 60, // 30 jours
